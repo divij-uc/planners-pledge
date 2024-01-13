@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" type="text/css" href="/static/mycss.css" />
+  </head>
+  <body class="bg-body-secondary">
+    <nav class="navbar">
+      <div class="container-fluid justify-content-start">
+        <a
+          class="navbar-brand mx-auto mb-0 h1 fs-2"
+          href="{{ url_for('start_page') }}"
+        >
+          <h1 class="display-1" style="font-family: Baskerville">
+            <b>The Planner's Pledge</b>
+          </h1>
+        </a>
+      </div>
+    </nav>
+    {% block body %} {% endblock %}
+
+    <div class="container-fluid">
+      <footer class="align-items-center py-3">
+        <div class="col-md-12 align-items-center">
+          <div class="row">
+            <!-- <div class="col-md-4">
+              <a href="https://urbanism.uchicago.edu/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
+                <img src="/static/University Logo_1Color_DarkGreystone_RGB.png" alt="Chicago Neighborhood Project" width="220" >
+              </a>
+            </div>
+            <div class="col-md-4 text-body-secondary my-auto text-start text-md-center">
+              <span class="m-2">Contact Us : <a class="email-color" href="mailto:urbanism@uchicago.edu">urbanism@uchicago.edu</a></span>
+            </div>
+            <div class="col-md-4 text-body-secondary my-auto text-start text-md-center">
+              <span class="m-2">© 2023 University of Chicago</span>
+            </div> -->
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
