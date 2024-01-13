@@ -1,3 +1,14 @@
 html {
     scroll-behavior: smooth;
 }
+body {
+    font-family: Baskerville;
+}
+
+p {
+    font-size: larger;
+}
+
+.pledge-list {
+    font-size: large;
+}
