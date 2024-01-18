@@ -1,5 +1,12 @@
 {% extends "_base_page.html" %} 
 
+{% block nav %}
+    <h3><a class="nav-link active" aria-current="page" href="{{ url_for('intro_page') }}">Introduction</a></h3>
+    <h3><a class="nav-link" aria-current="page" href="{{ url_for('start_page') }}">Read the pledge</a></h3>
+    <h3><a class="nav-link" aria-current="page" href="{{ url_for('sign_form') }}">Sign the pledge</a></h3>
+    <h3><a class="nav-link" aria-current="page" href="#">FAQs</a></h3>
+{% endblock %}
+
 {% block body %}
     <div class="container-fluid px-5 text-start py-2">
         <h3 class="display-3">

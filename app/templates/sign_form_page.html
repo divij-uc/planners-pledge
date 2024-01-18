@@ -1,30 +1,11 @@
-<!--
-
-    <div class="container-fluid px-5 text-start py-2">
-    <p>
-        <form
-            action=""
-            method="post"
-            novalidate
-            id="mainform"
-            class="needs-validation"
-        >
-        {{ signform.csrf_token }}
-            <div class="container text-start">
-                <div class="row justify-content-center">
-                    <div class="col-md-8 py-2">
-                    {{ signform.name.label(class_="form-label")}}
-                    </div>
-                    <div class="col-md-8 py-2">
-                    {{ signform.name(class_="form-text form-control")}}
-                    </div>
-                </div>
-            </div>
-        </form>
-    </p> -->
-
-
 {% extends "_base_page.html" %} 
+
+{% block nav %}
+    <h3><a class="nav-link" aria-current="page" href="{{ url_for('intro_page') }}">Introduction</a></h3>
+    <h3><a class="nav-link" aria-current="page" href="{{ url_for('start_page') }}">Read the pledge</a></h3>
+    <h3><a class="nav-link active" aria-current="page" href="{{ url_for('sign_form') }}">Sign the pledge</a></h3>
+    <h3><a class="nav-link" aria-current="page" href="#">FAQs</a></h3>
+{% endblock %}
 
 {% block body %}
     <div class="container-fluid px-5 text-start py-2">
