@@ -1,0 +1,267 @@
+<!--
+
+    <div class="container-fluid px-5 text-start py-2">
+    <p>
+        <form
+            action=""
+            method="post"
+            novalidate
+            id="mainform"
+            class="needs-validation"
+        >
+        {{ signform.csrf_token }}
+            <div class="container text-start">
+                <div class="row justify-content-center">
+                    <div class="col-md-8 py-2">
+                    {{ signform.name.label(class_="form-label")}}
+                    </div>
+                    <div class="col-md-8 py-2">
+                    {{ signform.name(class_="form-text form-control")}}
+                    </div>
+                </div>
+            </div>
+        </form>
+    </p> -->
+
+
+{% extends "_base_page.html" %} 
+
+{% block body %}
+    <div class="container-fluid px-5 text-start py-2">
+
+        <div class="pledge-list">
+            <h3>
+                Sign the pledge by filling the form below!                  
+            </h3>
+            <form
+            action=""
+            method="post"
+            novalidate
+            id="mainform"
+            class="needs-validation"
+        >
+        {{ signform.csrf_token }}
+            <div class="container text-start">
+                <div class="row justify-content-center">
+                    <div class="col-md-8 py-2">
+                        {{ signform.name.label(class_="form-label",style="font-size: large;")}}
+                    </div>
+                    <div class="col-md-8 py-2">
+                       {{ signform.name(class_="form-text form-control", placeholder=signform.name.description)}}
+                    </div>
+                    <div class="col-md-8 py-2">
+                       {{ signform.email.label(class_="form-label",style="font-size: large;")}}
+                    </div>
+                    <div class="col-md-8 py-2">
+                       {{ signform.email(class_="form-text form-control", placeholder=signform.email.description)}}
+                    </div>
+                    <div class="col-md-6 py-2">
+                        {{ signform.promo_email.label(class_="form-check-label")}} 
+                    </div>
+                    <div class="col-md-2 py-2 my-auto">
+                        {% for subfield in signform.promo_email %}
+                            <div class="form-check">
+                            <tr>
+                                <td>{{ subfield(class_="form-check-input", type="checkbox") }}</td>
+                            </tr>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div class="col-md-8 py-2">
+                        {{ signform.profession.label(class_="form-check-label")}} 
+                    </div>
+                    <div class="col-md-8 py-2 my-auto">
+                        {% for subfield in signform.profession %}
+                            <div class="form-check">
+                            <tr>
+                                <td>{{ subfield(class_="form-check-input", type="radio") }}</td>
+                                <td>{{ subfield.label(class_="form-check-label") }}</td>
+                            </tr>
+                            </div>
+                        {% endfor %}
+                            <div class="form-check">
+                                <tr>
+                                    <td>
+                                        <input class="form-check-input" type="radio" value="" href="#collapseprofession" data-bs-toggle="collapse" role="button" id="profession-n" name="profession">
+                                    </td>
+                                    <td>
+                                        <label class="form-check-label" for="profession-n">
+                                            Other
+                                        </label>
+                                    </td>
+                                </tr>
+                            </div>
+                            <div class="collapse" id="collapseprofession">
+                                <div class="col-md-8 py-2">
+                                    {{ signform.profession_other(class_="form-text form-control", placeholder=signform.profession_other.description)}}
+                                </div>
+                            </div>
+                    </div>
+                    <div class="col-md-8 py-2">
+                        {{ signform.sign_name.label(class_="form-label",style="font-size: large;")}}
+                    </div>
+                    <div class="col-md-8 py-2">
+                        {{ signform.sign_name(class_="form-text form-control", placeholder=signform.sign_name.description)}}
+                    </div>
+                    <div class="col-md-8 py-2">
+                        <h4>
+                            Tell us about yourself. The questions below are optional but will help us understand how we can best serve the Planner’s Pledge community.
+                        </h4>
+                    </div>
+                    <div class="col-md-8 py-2">
+                        {{ signform.certification.label(class_="form-check-label")}} 
+                    </div>
+                    <div class="col-md-8 py-2 my-auto">
+                        {% for subfield in signform.certification %}
+                            <div class="form-check">
+                            <tr>
+                                <td>{{ subfield(class_="form-check-input", type="radio") }}</td>
+                                <td>{{ subfield.label(class_="form-check-label") }}</td>
+                            </tr>
+                            </div>
+                        {% endfor %}
+                            <div class="form-check">
+                                <tr>
+                                    <td>
+                                        <input class="form-check-input" type="radio" value="" href="#collapsecertification" data-bs-toggle="collapse" role="button" id="certification-n" name="certification">
+                                    </td>
+                                    <td>
+                                        <label class="form-check-label" for="certification-n">
+                                            Other
+                                        </label>
+                                    </td>
+                                </tr>
+                            </div>
+                            <div class="collapse" id="collapsecertification">
+                                <div class="col-md-8 py-2">
+                                    {{ signform.certification_other(class_="form-text form-control", placeholder=signform.certification_other.description)}}
+                                </div>
+                            </div>
+                    </div>
+
+                    <div class="col-md-8 py-2">
+                        {{ signform.sector.label(class_="form-check-label")}} 
+                    </div>
+                    <div class="col-md-8 py-2 my-auto">
+                        {% for subfield in signform.sector %}
+                            <div class="form-check">
+                            <tr>
+                                <td>{{ subfield(class_="form-check-input", type="radio") }}</td>
+                                <td>{{ subfield.label(class_="form-check-label") }}</td>
+                            </tr>
+                            </div>
+                        {% endfor %}
+                            <div class="form-check">
+                                <tr>
+                                    <td>
+                                        <input class="form-check-input" type="radio" value="" href="#collapsesector" data-bs-toggle="collapse" role="button" id="sector-n" name="sector">
+                                    </td>
+                                    <td>
+                                        <label class="form-check-label" for="sector-n">
+                                            Other
+                                        </label>
+                                    </td>
+                                </tr>
+                            </div>
+                            <div class="collapse" id="collapsesector">
+                                <div class="col-md-8 py-2">
+                                    {{ signform.sector_other(class_="form-text form-control", placeholder=signform.sector_other.description)}}
+                                </div>
+                            </div>
+                    </div>
+
+                    <div class="col-md-8 py-2">
+                        {{ signform.age.label(class_="form-check-label")}} 
+                    </div>
+                    <div class="col-md-8 py-2 my-auto">
+                        {% for subfield in signform.age %}
+                            <div class="form-check">
+                            <tr>
+                                <td>{{ subfield(class_="form-check-input", type="radio") }}</td>
+                                <td>{{ subfield.label(class_="form-check-label") }}</td>
+                            </tr>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    
+                    <div class="col-md-8 py-2">
+                        {{ signform.gender.label(class_="form-check-label")}} 
+                    </div>
+                    <div class="col-md-8 py-2 my-auto">
+                        {% for subfield in signform.gender %}
+                            <div class="form-check">
+                            <tr>
+                                <td>{{ subfield(class_="form-check-input", type="radio") }}</td>
+                                <td>{{ subfield.label(class_="form-check-label") }}</td>
+                            </tr>
+                            </div>
+                        {% endfor %}
+                            <div class="form-check">
+                                <tr>
+                                    <td>
+                                        <input class="form-check-input" type="radio" value="" href="#collapsegender" data-bs-toggle="collapse" role="button" id="gender-n" name="gender">
+                                    </td>
+                                    <td>
+                                        <label class="form-check-label" for="gender-n">
+                                            Prefer to self-identify
+                                        </label>
+                                    </td>
+                                </tr>
+                            </div>
+                            <div class="collapse" id="collapsegender">
+                                <div class="col-md-8 py-2">
+                                    {{ signform.gender_other(class_="form-text form-control", placeholder=signform.gender_other.description)}}
+                                </div>
+                            </div>
+                    </div>
+
+                    <div class="col-md-8 py-2">
+                        {{ signform.race.label(class_="form-check-label")}} 
+                    </div>
+                    <div class="col-md-8 py-2 my-auto">
+                        {% for subfield in signform.race %}
+                            <div class="form-check">
+                            <tr>
+                                <td>{{ subfield(class_="form-check-input", type="radio") }}</td>
+                                <td>{{ subfield.label(class_="form-check-label") }}</td>
+                            </tr>
+                            </div>
+                        {% endfor %}
+                            <div class="form-check">
+                                <tr>
+                                    <td>
+                                        <input class="form-check-input" type="radio" value="" href="#collapserace" data-bs-toggle="collapse" role="button" id="race-n" name="race">
+                                    </td>
+                                    <td>
+                                        <label class="form-check-label" for="race-n">
+                                            Prefer to self-identify
+                                        </label>
+                                    </td>
+                                </tr>
+                            </div>
+                            <div class="collapse" id="collapserace">
+                                <div class="col-md-8 py-2">
+                                    {{ signform.race_other(class_="form-text form-control", placeholder=signform.race_other.description)}}
+                                </div>
+                            </div>
+                    </div>
+                    <div class="col-md-8 py-2">
+                        {{ signform.ethn_hisp.label(class_="form-check-label")}} 
+                    </div>
+                    <div class="col-md-8 py-2 my-auto">
+                        {% for subfield in signform.ethn_hisp %}
+                            <div class="form-check">
+                            <tr>
+                                <td>{{ subfield(class_="form-check-input", type="radio") }}</td>
+                                <td>{{ subfield.label(class_="form-check-label") }}</td>
+                            </tr>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    {{ signform.sign(class_="btn btn-dark btn-lg text-wrap") }}
+                </div>
+            </div>
+        </form>
+        </div>
+    </div>
+{% endblock %}

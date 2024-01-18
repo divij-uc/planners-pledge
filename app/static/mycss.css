@@ -12,3 +12,12 @@ p {
 .pledge-list {
     font-size: large;
 }
+input[type=checkbox]:checked {
+    background-color: #222529;
+    border-color: #434649;
+}
+
+input[type=radio]:checked {
+    background-color: #222529;
+    border-color: #434649;
+}
