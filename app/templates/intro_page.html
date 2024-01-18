@@ -1,0 +1,68 @@
+{% extends "_base_page.html" %} 
+
+{% block body %}
+    <div class="container-fluid px-5 text-start py-2">
+        <h3 class="display-3">
+                <b>Introduction</b>
+        </h3>
+        <p>
+            The book Walkable City begins with the statement that “Jane Jacobs, 
+            who wrote in 1960, won over the planners by 1980.” This is largely true 
+            as it relates to strategies for the inner city but, on reflection, less 
+            accurate when it comes to how our cities and rural areas have been 
+            allowed to grow. By 1980, urban renewal was discredited and nobody 
+            smart was advocating for more inner-city highways, but the juggernaut 
+            of sprawl was only gaining momentum. Anyone who has traveled America 
+            over the past forty years can bear witness to how our cities have been
+            continually decanted outward into the countryside, as even the most 
+            rural crossroads manage to attract a tawdry detritus of Speedways and
+            Dollar Stores. Sadly, this growth—destructive as it is to local economy,
+            culture, and nature—was often guided by professional planners, who
+            administer the zoning codes and development standards that give it 
+            shape. 
+        </p>
+        <p>
+            To this day, the fight for less car-dependent communities still, 
+            unbelievably, lacks the full-throated support of the planning profession. 
+            The American Planning Association, the organization that has dictated 
+            the conduct of professional planners since mid-century, has never taken 
+            a bold stance on sprawl. It has a Sustainability division—not to mention 
+            a New Urbanism division—just as it has a Latino Division and an LGBTQ 
+            Division, as if socially responsible planning is some sort of demographic 
+            rather than the very reason for planners to organize in the first place. 
+            It oversees planner certification and ethical standards with a heavy hand, 
+            but it has little to say about the shape of our communities. 
+        </p>
+        <p>
+            For this reason, it is time for a grassroots effort among America's 
+            professional planners to establish a higher standard of conduct. By 
+            adhering to this standard of conduct, planners will lead in the creation 
+            of walkable communities that are conducive to improved health and happiness, 
+            economic vitality, and most importantly, climate resilience. The first 
+            step in this process is to build a coalition of practitioners who are 
+            willing to commit to this standard and assist in its proliferation. It 
+            is hoped that this coalition might include you. 
+        </p>
+        <p>
+            The document that follows is substantially modified from a proposal 
+            first launched in 2022, in the 10th Anniversary edition of Walkable 
+            City. Several dozen people contributed to its current wording. A protocol
+             may be established to amend it over time, but it should be considered 
+             a final draft for now, presented for your endorsement or rejection. 
+        </p>
+        <p>
+            While following the mandates laid out in this document may alone be 
+            insufficient to reverse over seven decades of poor planning decisions, 
+            it is a necessary first step. By signing and sharing the document that 
+            follows—and living by its mandates—each of us can play a role in redeeming 
+            a profession that is not beyond saving, and in making America and the world 
+            a better place. 
+        </p>
+        <div class="text-center">
+            <form action="" method="post" novalidate id="mainform">
+                {{ readbutton.csrf_token }} 
+                {{ readbutton.read(class_="btn btn-dark btn-lg text-wrap") }}
+            </form>
+        </div>
+    </div>
+{% endblock %}
