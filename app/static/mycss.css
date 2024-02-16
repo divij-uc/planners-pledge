@@ -24,3 +24,9 @@ input[type=radio]:checked {
 .active {
     text-decoration: underline black;
 }
+.masthead {
+    font-size: 8vw;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
