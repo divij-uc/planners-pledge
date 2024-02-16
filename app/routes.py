@@ -11,12 +11,12 @@ def start_page():
     return render_template("start_page.html", signbutton=signbutton)
 
 
-@app.route("/introduction", methods=["GET", "POST"])
-def intro_page():
+@app.route("/background", methods=["GET", "POST"])
+def background_page():
     readbutton = ReadButton()
     if readbutton.validate_on_submit():
         return redirect(url_for("start_page"))
-    return render_template("intro_page.html", readbutton=readbutton)
+    return render_template("background_page.html", readbutton=readbutton)
 
 
 @app.route("/sign_form", methods=["GET", "POST"])
