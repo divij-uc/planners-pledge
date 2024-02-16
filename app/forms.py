@@ -7,8 +7,21 @@ from wtforms import (
     DecimalField,
     TextAreaField,
     SelectMultipleField,
+    widgets,
 )
 from wtforms.validators import NumberRange, DataRequired, ValidationError, Optional
+
+
+class MultiCheckboxField(SelectMultipleField):
+    """
+    A multiple-select, except displays a list of checkboxes.
+
+    Iterating the field will produce subfields, allowing custom rendering of
+    the enclosed checkbox fields.
+    """
+
+    widget = widgets.ListWidget(prefix_label=False)
+    option_widget = widgets.CheckboxInput()
 
 
 class SignForm(FlaskForm):
@@ -30,11 +43,13 @@ class SignForm(FlaskForm):
         label="What is your profession?",
         validators=[Optional()],
         choices=[
-            "Architect",
-            "Engineer",
-            "Landscape Architect",
+            "Elected Official",
             "Planner",
             "Urban Designer",
+            "Engineer",
+            "Architect",
+            "Landscape Architect",
+            "Real Estate Professional",
         ],
     )
     profession_other = StringField(
@@ -48,13 +63,17 @@ class SignForm(FlaskForm):
         description="Sign the pledge with your name!",
     )
 
-    certification = RadioField(
-        label="What is your profession?",
+    certification = MultiCheckboxField(
+        label="Do you have a professional certification? Check all that apply.",
         validators=[Optional()],
         choices=[
             "AICP (American Planning Association)",
             "CNU-A (Congress for the New Urbanism)",
-            "Professional Transportation Planner (Institute of Transportation Engineers)",
+            "AIA (American Institute of Architects)",
+            "ASLA (American Society of Landscape Architects)",
+            "Registered Architect",
+            "Professional Transportation Planner (Institute of transportation Engineers)",
+            "AMI, ALI, or AEI (American Association of State Highway and Transportation Officials)",
         ],
     )
     certification_other = StringField(
@@ -66,10 +85,10 @@ class SignForm(FlaskForm):
         label="In which sector do you currently work?",
         validators=[Optional()],
         choices=[
-            "Academic",
-            "Non-profit",
-            "Private",
             "Public",
+            "Non-profit",
+            "Business",
+            "Academic",
         ],
     )
     sector_other = StringField(
@@ -80,7 +99,15 @@ class SignForm(FlaskForm):
     age = RadioField(
         label="What is your age",
         validators=[Optional()],
-        choices=["18-24", "25-34", "35-44", "45-54", "55-64", "65 or older"],
+        choices=[
+            "Under 18",
+            "18-24",
+            "25-34",
+            "35-44",
+            "45-54",
+            "55-64",
+            "65 or older",
+        ],
     )
     gender = RadioField(
         label="What is your gender",
