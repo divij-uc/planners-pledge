@@ -68,10 +68,8 @@
             a better place. 
         </p>
         <div class="text-center">
-            <form action="" method="post" novalidate id="mainform">
-                {{ readbutton.csrf_token }} 
-                {{ readbutton.read(class_="btn btn-dark btn-lg text-wrap") }}
-            </form>
+            <a class="btn btn-dark btn-lg text-wrap" href="{{url_for('sign_form')}}" role="button">Sign the Pledge</a>
+            <a class="btn btn-dark btn-lg text-wrap" href="{{url_for('start_page')}}" role="button">Read the Pledge</a>
         </div>
     </div>
 {% endblock %}

@@ -11,14 +11,6 @@ from wtforms import (
 from wtforms.validators import NumberRange, DataRequired, ValidationError, Optional
 
 
-class SignButton(FlaskForm):
-    sign = SubmitField("Sign Now")
-
-
-class ReadButton(FlaskForm):
-    read = SubmitField("Read the Pledge")
-
-
 class SignForm(FlaskForm):
     name = StringField(
         "What is your name?", validators=[DataRequired()], description="Enter name"

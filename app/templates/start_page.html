@@ -161,10 +161,7 @@
                 In signing this pledge, I commit myself to pursuing a fundamentally changed planning profession, one that plays no role in advancing car dependence or social segregation.
             </h3>
             <div class="text-center">
-                <form action="" method="post" novalidate id="mainform">
-                    {{ signbutton.csrf_token }} 
-                    {{ signbutton.sign(class_="btn btn-dark btn-lg text-wrap") }}
-                </form>
+                <a class="btn btn-dark btn-lg text-wrap" href="{{url_for('sign_form')}}" role="button">Sign the Pledge</a>
             </div>
         </div>
     </div>

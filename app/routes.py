@@ -1,22 +1,16 @@
 from app import app  # , db
-from app.forms import SignButton, SignForm, ReadButton
+from app.forms import SignForm
 from flask import render_template, redirect, url_for, session, request
 
 
 @app.route("/", methods=["GET", "POST"])
 def start_page():
-    signbutton = SignButton()
-    if signbutton.validate_on_submit():
-        return redirect(url_for("sign_form"))
-    return render_template("start_page.html", signbutton=signbutton)
+    return render_template("start_page.html")
 
 
 @app.route("/background", methods=["GET", "POST"])
 def background_page():
-    readbutton = ReadButton()
-    if readbutton.validate_on_submit():
-        return redirect(url_for("start_page"))
-    return render_template("background_page.html", readbutton=readbutton)
+    return render_template("background_page.html")
 
 
 @app.route("/sign_form", methods=["GET", "POST"])
