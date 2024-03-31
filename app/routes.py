@@ -13,6 +13,11 @@ def background_page():
     return render_template("background_page.html")
 
 
+@app.route("/faqs", methods=["GET", "POST"])
+def faq_page():
+    return render_template("faq_page.html")
+
+
 @app.route("/sign_form", methods=["GET", "POST"])
 def sign_form():
     signform = SignForm()

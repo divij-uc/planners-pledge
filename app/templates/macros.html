@@ -1,0 +1,7 @@
+{% macro nav_link(endpoint, name) %}
+    {% if request.endpoint.endswith(endpoint) %}
+        <a class="nav-link text-center py-0 fs-4 col-md-2 active" aria-current="page" href="{{ url_for(endpoint) }}">{{name}}</a>
+    {% else %}
+        <a class="nav-link text-center py-0 fs-4 col-md-2" href="{{ url_for(endpoint) }}">{{name}}</a>
+    {% endif %}
+{% endmacro %}

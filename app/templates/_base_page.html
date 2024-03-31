@@ -1,3 +1,5 @@
+{% from "macros.html" import nav_link with context %}
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -25,7 +27,12 @@
       <div class="container-fluid">
           <div class="navbar-nav mx-auto w-100 row">
             <div class="row">
-              {% block nav %} {% endblock %}
+              <a class="nav-link text-center py-0 fs-4 col-md-2" href="#"></a>
+              {{ nav_link('background_page', 'Background') }}
+              {{ nav_link('start_page', 'Read the Pledge') }}
+              {{ nav_link('sign_form', 'Sign the Pledge') }}
+              {{ nav_link('faq_page', 'FAQs') }}
+              <a class="nav-link text-center py-0 fs-4 col-md-2" href="#"></a>
             </div>
           </div>
       </div>
