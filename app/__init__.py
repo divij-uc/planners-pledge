@@ -10,7 +10,7 @@ app.config.from_object(Config)
 
 csrf = CSRFProtect()
 csrf.init_app(app)
-# db = SQLAlchemy(app)
-# migrate = Migrate(app, db)
+db = SQLAlchemy(app)
+migrate = Migrate(app, db)
 
-from app import routes  # , models
+from app import routes, models
