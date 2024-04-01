@@ -5,13 +5,6 @@ body {
     font-family: Baskerville;
 }
 
-p {
-    font-size: larger;
-}
-
-.pledge-list {
-    font-size: large;
-}
 input[type=checkbox]:checked {
     background-color: #222529;
     border-color: #434649;
@@ -25,7 +18,7 @@ input[type=radio]:checked {
     text-decoration: underline whitesmoke;
 }
 .masthead {
-    font-size: 8vw;
+    font-size: 6vw;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
