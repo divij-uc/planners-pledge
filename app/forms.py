@@ -27,11 +27,13 @@ class MultiCheckboxField(SelectMultipleField):
 
 class SignForm(FlaskForm):
     name = StringField(
-        "What is your name?", validators=[DataRequired()], description="Enter name"
+        "What is your name?",
+        validators=[DataRequired(message="Please enter your name!")],
+        description="Enter name",
     )
     email = StringField(
         "What is your email address?",
-        validators=[DataRequired()],
+        validators=[DataRequired(message="Please enter your email!")],
         description="Enter email",
     )
 
@@ -59,7 +61,9 @@ class SignForm(FlaskForm):
     )
     sign_name = StringField(
         label="Sign the Planner's Pledge by typing your full name in the box below.",
-        validators=[DataRequired()],
+        validators=[
+            DataRequired(message="Please enter your full name to sign the pledge!")
+        ],
         description="Sign the pledge with your name!",
     )
 
