@@ -7,6 +7,7 @@ from wtforms import (
     DecimalField,
     TextAreaField,
     SelectMultipleField,
+    BooleanField,
     widgets,
 )
 from wtforms.validators import NumberRange, DataRequired, ValidationError, Optional
@@ -34,9 +35,8 @@ class SignForm(FlaskForm):
         description="Enter email",
     )
 
-    promo_email = RadioField(
+    promo_email = BooleanField(
         label="Please check the box if you prefer NOT to receive occasional emails related to the Planner's Pledge.",
-        choices=["<Do not send>"],
         validators=[Optional()],
     )
     profession = RadioField(
@@ -141,6 +141,10 @@ class SignForm(FlaskForm):
         validators=[Optional()],
         description="Enter self-identified response",
     )
-    ethn_hisp = RadioField(label="Are you Hispanic/Latino?", choices=["Yes", "No"])
+    ethn_hisp = RadioField(
+        label="Are you Hispanic/Latino?",
+        validators=[Optional()],
+        choices=["Yes", "No"],
+    )
 
     sign = SubmitField("Sign the Pledge")
