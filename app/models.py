@@ -8,7 +8,7 @@ class PledgeSign(db.Model):
     promo_email = db.Column(db.Boolean, default=False)
     profession = db.Column(db.String(100))
     sign_name = db.Column(db.String(100))
-    certification = db.Column(db.String(100))
+    certification = db.Column(db.String(1000))
     sector = db.Column(db.String(100))
     age = db.Column(db.String(15))
     gender = db.Column(db.String(100))
