@@ -59,12 +59,15 @@
                     </div>
                     <div class="col-md-8 py-2 my-auto">
                         {% for subfield in signform.certification %}
+                            {% if subfield.label.text|length != 0 %}
                             <div class="form-check">
                             <tr>
                                 <td>{{ subfield(class_="form-check-input", type="checkbox") }}</td>
                                 <td>{{ subfield.label(class_="form-check-label") }}</td>
                             </tr>
                             </div>
+                            {% endif %}
+                            
                         {% endfor %}
                             <div class="form-check">
                                 <tr>
@@ -101,12 +104,14 @@
                     </div>
                     <div class="col-md-8 py-2 my-auto">
                         {% for subfield in signform.profession %}
+                            {% if subfield.label.text|length != 0 %}
                             <div class="form-check">
                             <tr>
                                 <td>{{ subfield(class_="form-check-input", type="radio") }}</td>
                                 <td>{{ subfield.label(class_="form-check-label") }}</td>
                             </tr>
                             </div>
+                            {% endif %}
                         {% endfor %}
                             <div class="form-check">
                                 <tr>
@@ -132,12 +137,14 @@
                     </div>
                     <div class="col-md-8 py-2 my-auto">
                         {% for subfield in signform.sector %}
+                            {% if subfield.label.text|length != 0 %}
                             <div class="form-check">
                             <tr>
                                 <td>{{ subfield(class_="form-check-input", type="radio") }}</td>
                                 <td>{{ subfield.label(class_="form-check-label") }}</td>
                             </tr>
                             </div>
+                            {% endif %}
                         {% endfor %}
                             <div class="form-check">
                                 <tr>
@@ -177,12 +184,14 @@
                     </div>
                     <div class="col-md-8 py-2 my-auto">
                         {% for subfield in signform.gender %}
+                            {% if subfield.label.text|length != 0 %}
                             <div class="form-check">
                             <tr>
                                 <td>{{ subfield(class_="form-check-input", type="radio") }}</td>
                                 <td>{{ subfield.label(class_="form-check-label") }}</td>
                             </tr>
                             </div>
+                            {% endif %}
                         {% endfor %}
                             <div class="form-check">
                                 <tr>
@@ -208,12 +217,14 @@
                     </div>
                     <div class="col-md-8 py-2 my-auto">
                         {% for subfield in signform.race %}
+                        {% if subfield.label.text|length != 0 %}
                             <div class="form-check">
                             <tr>
                                 <td>{{ subfield(class_="form-check-input", type="radio") }}</td>
                                 <td>{{ subfield.label(class_="form-check-label") }}</td>
                             </tr>
                             </div>
+                        {% endif %}
                         {% endfor %}
                             <div class="form-check">
                                 <tr>

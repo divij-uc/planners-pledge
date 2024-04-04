@@ -52,6 +52,7 @@ class SignForm(FlaskForm):
             "Architect",
             "Landscape Architect",
             "Real Estate Professional",
+            "",
         ],
     )
     profession_other = StringField(
@@ -78,6 +79,7 @@ class SignForm(FlaskForm):
             "Registered Architect",
             "Professional Transportation Planner (Institute of transportation Engineers)",
             "AMI, ALI, or AEI (American Association of State Highway and Transportation Officials)",
+            "",
         ],
     )
     certification_other = StringField(
@@ -93,6 +95,7 @@ class SignForm(FlaskForm):
             "Non-profit",
             "Business",
             "Academic",
+            "",
         ],
     )
     sector_other = StringField(
@@ -121,6 +124,7 @@ class SignForm(FlaskForm):
             "Female",
             "Non-binary",
             "Prefer not to answer",
+            "",
         ],
     )
     gender_other = StringField(
@@ -138,6 +142,7 @@ class SignForm(FlaskForm):
             "Native Hawaiian or Pacific Islander",
             "Caucasian/White",
             "Prefer not to answer",
+            "",
         ],
     )
     race_other = StringField(
