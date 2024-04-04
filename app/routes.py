@@ -30,6 +30,7 @@ def sign_form():
     if signform.validate_on_submit():
         pledge_sign = PledgeSign()
         signform.populate_obj(pledge_sign)
+        pledge_sign.certification = ", ".join(pledge_sign.certification)
         db.session.add(pledge_sign)
         db.session.commit()
         return redirect(url_for("thank_page"))
