@@ -30,7 +30,8 @@ def sign_form():
     if signform.validate_on_submit():
         pledge_sign = PledgeSign()
         signform.populate_obj(pledge_sign)
-        pledge_sign.certification = ", ".join(pledge_sign.certification)
+        pledge_sign.certification = "; ".join(pledge_sign.certification)
+        pledge_sign.race = "; ".join(pledge_sign.race)
         if signform.sector_other.data:
             pledge_sign.sector = signform.sector_other.data
         if signform.profession_other.data:
@@ -38,9 +39,10 @@ def sign_form():
         if signform.gender_other.data:
             pledge_sign.gender = signform.gender_other.data
         if signform.race_other.data:
-            pledge_sign.race = signform.race_other.data
+            pledge_sign.race += signform.race_other.data
         if signform.certification_other.data:
-            pledge_sign.certification += ", " + signform.certification_other.data
+            pledge_sign.certification += signform.certification_other.data
+        
         db.session.add(pledge_sign)
         db.session.commit()
         return redirect(url_for("thank_page"))

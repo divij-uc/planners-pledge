@@ -220,7 +220,7 @@
                         {% if subfield.label.text|length != 0 %}
                             <div class="form-check">
                             <tr>
-                                <td>{{ subfield(class_="form-check-input", type="radio") }}</td>
+                                <td>{{ subfield(class_="form-check-input", type="checkbox") }}</td>
                                 <td>{{ subfield.label(class_="form-check-label") }}</td>
                             </tr>
                             </div>
@@ -229,7 +229,7 @@
                             <div class="form-check">
                                 <tr>
                                     <td>
-                                        <input class="form-check-input" type="radio" value="" href="#collapserace" data-bs-toggle="collapse" role="button" id="race-n" name="race">
+                                        <input class="form-check-input" type="checkbox" value="" href="#collapserace" data-bs-toggle="collapse" role="button" id="race-n" name="race">
                                     </td>
                                     <td>
                                         <label class="form-check-label" for="race-n">

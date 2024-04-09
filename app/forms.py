@@ -132,7 +132,7 @@ class SignForm(FlaskForm):
         validators=[Optional()],
         description="Enter self-identified response",
     )
-    race = RadioField(
+    race = MultiCheckboxField(
         label="What is your race? [Check all that apply]",
         validators=[Optional()],
         choices=[
