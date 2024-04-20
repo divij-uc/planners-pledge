@@ -19,9 +19,12 @@ def faq_page():
     return render_template("faq_page.html")
 
 
-@app.route("/thanks", methods=["GET", "POST"])
-def thank_page():
-    return render_template("thank_page.html")
+@app.route("/signatories", methods=["GET", "POST"])
+def signatory_page():
+    sign = request.args.get('sign', type=bool, default=False)
+    signatories = PledgeSign.query.all()
+    names = [s.sign_name for s in signatories]
+    return render_template("signatory_page.html", sign=sign, names = names)
 
 
 @app.route("/sign_form", methods=["GET", "POST"])
@@ -45,7 +48,7 @@ def sign_form():
         
         db.session.add(pledge_sign)
         db.session.commit()
-        return redirect(url_for("thank_page"))
+        return redirect(url_for("signatory_page", sign = True))
     else:
         if signform.errors:
             flash(signform.errors)
