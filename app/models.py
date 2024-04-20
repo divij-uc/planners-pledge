@@ -1,5 +1,5 @@
 from app import db
-
+from sqlalchemy.sql import func
 
 class PledgeSign(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -14,3 +14,5 @@ class PledgeSign(db.Model):
     gender = db.Column(db.String(100))
     race = db.Column(db.String(100))
     ethn_hisp = db.Column(db.String(5))
+    time_created = db.Column(db.DateTime(timezone=True), server_default=func.now())
+
