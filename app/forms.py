@@ -1,16 +1,20 @@
 from flask_wtf import FlaskForm
 from wtforms import (
     SubmitField,
-    HiddenField,
     RadioField,
     StringField,
-    DecimalField,
-    TextAreaField,
     SelectMultipleField,
     BooleanField,
     widgets,
 )
-from wtforms.validators import NumberRange, DataRequired, ValidationError, Optional
+from wtforms.validators import DataRequired, ValidationError, Optional, Email
+from better_profanity import profanity
+
+profanity.load_censor_words()
+
+def profanity_check(form, field):
+    if profanity.contains_profanity(field.data):
+        raise ValidationError('Please enter a name without profanity!')
 
 
 class MultiCheckboxField(SelectMultipleField):
@@ -33,7 +37,7 @@ class SignForm(FlaskForm):
     )
     email = StringField(
         "What is your email address?",
-        validators=[DataRequired(message="Please enter your email!")],
+        validators=[DataRequired(message="Please enter your E-mail ID!"), Email("Please enter a valid E-mail ID!")],
         description="Enter email",
     )
 
@@ -63,7 +67,8 @@ class SignForm(FlaskForm):
     sign_name = StringField(
         label="Sign the Planner's Pledge by typing your full name in the box below.",
         validators=[
-            DataRequired(message="Please enter your full name to sign the pledge!")
+            DataRequired(message="Please enter your full name to sign the pledge!"),
+            profanity_check
         ],
         description="Sign the pledge with your name!",
     )
