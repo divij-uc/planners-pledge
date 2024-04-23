@@ -23,7 +23,7 @@ def faq_page():
 def signatory_page():
     sign = request.args.get('sign', type=bool, default=False)
     signatories = PledgeSign.query.all()
-    names = [s.sign_name for s in signatories]
+    names = [s.sign_name.title() for s in signatories]
     return render_template("signatory_page.html", sign=sign, names=names)
 
 
