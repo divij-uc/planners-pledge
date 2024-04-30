@@ -14,12 +14,12 @@
         </h6>
         <div class="container text-center">
             <div class="row align-items-start">
-                {% for id, name in id_names %}
-                  <!-- {% if loop.index % 4 != 0 and not loop.last%}
+                <!-- {% if loop.index % 4 != 0 and not loop.last%}
                     <div class="col-md-3 col-sm-12 border-md-end">
                   {% else %}
                     <div class="col-md-3 col-sm-12">
                   {% endif %} -->
+                {% for id, name in id_names %}
                     <div class="col-12">
                         <p class="fs-3" id={{id}}>
                             {{ name }}
