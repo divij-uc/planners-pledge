@@ -4,6 +4,12 @@ from app.models import PledgeSign
 from flask import render_template, redirect, url_for, session, request, flash
 
 
+def name_fix(name):
+    if name.isupper():
+        return name.title()
+    return name
+
+
 @app.route("/", methods=["GET"])
 def start_page():
     return render_template("start_page.html")
@@ -18,13 +24,12 @@ def background_page():
 def faq_page():
     return render_template("faq_page.html")
 
-
 @app.route("/signatories", methods=["GET"])
 def signatory_page():
     sign = request.args.get('sign', type=bool, default=False)
     signatories = PledgeSign.query.all()
-    names = [s.sign_name.title() for s in signatories]
-    return render_template("signatory_page.html", sign=sign, names=names)
+    id_names = [(s.id, name_fix(s.sign_name)) for s in signatories]
+    return render_template("signatory_page.html", sign=sign, id_names=id_names)
 
 
 @app.route("/sign_form", methods=["GET", "POST"])
