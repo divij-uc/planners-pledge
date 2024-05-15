@@ -3,6 +3,8 @@ from app.forms import SignForm
 from app.models import PledgeSign
 from flask import render_template, redirect, url_for, session, request, flash
 
+FILTERED_IDS = [84, 81]
+
 
 def name_fix(name):
     if name.isupper():
@@ -28,7 +30,11 @@ def faq_page():
 def signatory_page():
     sign = request.args.get('sign', type=bool, default=False)
     signatories = PledgeSign.query.all()
-    id_names = [(s.id, name_fix(s.sign_name)) for s in signatories[::-1]]
+    id_names = [
+        (s.id, name_fix(s.sign_name))
+        for s in signatories[::-1]
+        if s.id not in FILTERED_IDS
+    ]
     return render_template("signatory_page.html", sign=sign, id_names=id_names)
 
 
