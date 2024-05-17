@@ -3,7 +3,7 @@ from app.forms import SignForm
 from app.models import PledgeSign
 from flask import render_template, redirect, url_for, session, request, flash
 
-FILTERED_IDS = [84, 81, 96, 105, 139, 162]
+FILTERED_IDS = [84, 81, 96, 105, 139, 162, 170]
 
 
 def name_fix(name):
